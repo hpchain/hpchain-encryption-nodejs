@@ -1,24 +1,24 @@
-bumo-encryption
+hpchain-encryption
 =======
 
-bumo-encryption Sub module of [bumo-sdk-js](https://github.com/bumoproject/bumo-sdk-nodejs).
+hpchain-encryption Sub module of [hpchain-sdk-js]().
 
-## bumo-encryption  Installation
+## hpchain-encryption  Installation
 ```
-npm install bumo-encryption --save
+npm install hpchain-encryption --save
 ```
 
-## bumo-encryption  Test
+## hpchain-encryption  Test
 ```
 npm test
 ```
 
-## bumo-encryption  Usage
+## hpchain-encryption  Usage
 
 ```js
 'use strict';
 
-const encryption = require('bumo-encryption');
+const encryption = require('hpchain-encryption');
 
 const KeyPair = encryption.keypair;
 const signature = encryption.signature;
@@ -29,6 +29,13 @@ let kp = new KeyPair();
 let encPrivateKey = kp.getEncPrivateKey();
 let encPublicKey = kp.getEncPublicKey();
 let address = kp.getAddress();
+
+
+console.log('============= bof: ==============');
+console.log(`EncPrivateKey is : ${encPrivateKey}`);
+console.log(`EncPublicKey is : ${encPublicKey}`);
+console.log(`Address hash is : ${address}`);
+console.log('============= eof: ==============');
 
 // Get keypair
 let keypair = KeyPair.getKeyPair();
@@ -52,18 +59,13 @@ KeyPair.checkAddress(address);
 let sign = signature.sign('test', encPrivateKey);
 let verify = signature.verify('test', sign, encPublicKey);
 
-// encrypt keystore and decrypt
-keystore.encrypt(privateKey, password).then(function (encryptData) {
-  console.log(encryptData)
-}).catch(function (err) {
-  console.log(err);
+// keystore
+keystore.encrypt(encPrivateKey, 'test', function(encData) {
+  keystore.decrypt(encData, 'test', function(descData) {
+    console.log(descData);
+  });
 });
 
-keystore.decrypt(encryptData, password).then(function (encryptData) {
-  console.log(encryptData)
-}).catch(function (err) {
-  console.log(err);
-});
 ```
 
 ## License

@@ -9,11 +9,9 @@
   "author": "hpchain",
   "license": "ISC",
   "dependencies": {
-    "aes-js": "^3.1.1",
+    "crypto-js": "^3.1.9-1",
     "is-type-of": "^1.2.0",
-    "scrypt": "^6.0.3",
-    "sjcl": "^1.0.7",
-    "tweetnacl": "^1.0.0"
+    "sjcl": "^1.0.7"
   },
   "directories": {
     "lib": "lib",
@@ -21,16 +19,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hpchain/hpchain-encryption-nodejs.git"
+    "url": ""
   },
   "keywords": [
     "hpchain",
     "hpchain-encryption"
   ],
   "bugs": {
-    "url": "https://github.com/bumoproject/bumo-encryption-js/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/bumoproject/bumo-encryption-js#readme",
+  "homepage": "",
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.2.0"
